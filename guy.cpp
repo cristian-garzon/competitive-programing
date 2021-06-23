@@ -1,20 +1,18 @@
-//THIS PROGRAMS IS´NT COMPLETE
-#include<bits/stdc++.h>
+nclude<bits/stdc++.h>
 using namespace std;
 int main(){
-	int n,p,q,x,y;
-	bool v = false;
-	cin >> n >> p;
-	for(int i = 0; i < p; i++){
-		cin >> x;
-		if(x ==  n)v = true;
-	}	
-	cin >> q;
-	for(int i = 0; i < q; i++){
-		cin >> y;
-		if(y == n && !v)v = true;
-		else v = false;
+	int n, a=0,b,c;
+	cin >> n;
+	cin >> b;
+	vector<int> x(b);
+	for(int i = 0; i < b; i++) cin >> x[i];
+	cin >> c;
+	vector<int> y(c);
+	for(int i = 0; i < c; i++) cin >> y[i];
+	x.insert(x.end(),y.begin(), y.end());
+	for(int i = 0; i < n; i++){
+		auto aux = find(x.begin(), x.end(), i+1);
+		if(!(aux != x.end())) a=-1;
 	}
-	if(v)cout << "I become the guy." << endl;
-	else cout << "Oh, my keyboard!" << endl;
+	a == 0 ? cout << "I become the guy." << endl : cout << "Oh, my keyboard!" << endl;											    
 }
